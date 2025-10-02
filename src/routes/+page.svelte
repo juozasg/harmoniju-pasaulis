@@ -1,16 +1,12 @@
 <script>
-	import { bestScore } from '$lib/scoreCookie.svelte';
+	import { goto } from '$app/navigation';
+	import { bestScore, level02Unlocked, level03Unlocked } from '$lib/persisted/scores.svelte';
 	import { secondsToTime } from '$lib/util';
 
-	// import { goto } from '$app/navigation';
-	// goto('/lesson02');
 
-	const lesson01Best = bestScore('lesson01');
-	const lesson02Best = bestScore('lesson02');
-	const lesson02Unlocked = lesson01Best && lesson01Best <= 120;
-
-	const lesson03Best = bestScore('lesson03');
-	const lesson03Unlocked = lesson02Best && lesson02Best <= 120;
+	const bestLevel01 = bestScore('level01');
+	const bestLevel02 = bestScore('level02');
+	const bestLevel03 = bestScore('level03');
 </script>
 
 <div class="container main-menu">
@@ -19,29 +15,29 @@
 
 	<div class="levels">
 		<div class="level">
-			<button class="btn btn-primary">Lygis 1: Balti Klavišai</button>
-			{#if lesson01Best}
-				<p>Geriausias laikas: {secondsToTime(lesson01Best)}</p>
+			<button class="btn btn-primary" onclick={() => goto('/level01')}>Lygis 1: Balti Klavišai</button>
+			{#if bestLevel01}
+				<p>Geriausias laikas: {secondsToTime(bestLevel01)}</p>
 			{/if}
 		</div>
 		<div class="level">
-			<button class="btn btn-primary" disabled={!lesson02Unlocked}>Lygis 2: Juodi Klavišai</button>
-			{#if lesson02Unlocked}
-				{#if lesson02Best}
-					<p>Geriausias laikas: {secondsToTime(lesson02Best)}</p>
+			<button class="btn btn-primary" disabled={!level02Unlocked()} onclick={() => goto('/level02')}>Lygis 2: Juodi Klavišai</button>
+			{#if level02Unlocked()}
+				{#if bestLevel02}
+					<p>Geriausias laikas: {secondsToTime(bestLevel02)}</p>
 				{/if}
 			{:else}
 				<p>Norint atrakinti, lygis 1 turi būti baigtas per 3 minutes</p>
 			{/if}
 		</div>
 		<div class="level">
-			<button class="btn btn-primary" disabled={!lesson03Unlocked}>Lygis 3: Visi Klavišai</button>
-			{#if lesson03Unlocked}
-				{#if lesson03Best}
-					<p>Best Time: {secondsToTime(lesson03Best)}</p>
+			<button class="btn btn-primary" disabled={!level03Unlocked()} onclick={() => goto('/level03')}>Lygis 3: Visi Klavišai</button>
+			{#if level03Unlocked()}
+				{#if bestLevel03}
+					<p>Geriausias laikas: {secondsToTime(bestLevel03)}</p>
 				{/if}
 			{:else}
-				<p>Level 2 under 3 minutes to unlock</p>
+				<p>Norint atrakinti, lygis 2 turi būti baigtas per 3 minutes</p>
 			{/if}
 		</div>
 	</div>
@@ -69,6 +65,7 @@
 	}
 	.btn {
 		padding: 10px 10px;
+		padding-bottom: 14px;
 		height: 50px;
 		width: 340px;
 		font-size: 30px;

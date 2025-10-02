@@ -1,5 +1,5 @@
 <script>
-	import { settings } from './settingsCookie.svelte';
+	import { settings } from './persisted/settings.svelte';
 </script>
 
 <div class="container">

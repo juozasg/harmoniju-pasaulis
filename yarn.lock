@@ -1397,6 +1397,11 @@ svelte-eslint-parser@^1.1.1:
     postcss-scss "^4.0.9"
     postcss-selector-parser "^7.0.0"
 
+svelte-persisted-state@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/svelte-persisted-state/-/svelte-persisted-state-1.2.0.tgz#4f2d5fc35673ff110cb211abaa6d878b93ec4870"
+  integrity sha512-zNPfLNH3vG/e0JXYU+rEkDNXnD8OhE5IzJfMnWIFYRxOcg1Ngc0x5uP4RdJKUdRsVjNLL6zBYPiQdzrYbxLoMQ==
+
 svelte@^5.0.0:
   version "5.25.9"
   resolved "https://registry.yarnpkg.com/svelte/-/svelte-5.25.9.tgz#f06ea50ae6fae2ce0c27e900c748bcdbb9bab6b3"

@@ -2,4 +2,4 @@
 	import Game from '$lib/Game.svelte';
 </script>
 
-<Game />
+<Game level="level01" />

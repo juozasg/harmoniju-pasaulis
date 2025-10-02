@@ -1,8 +1,6 @@
 <script lang="ts">
-	import { loadScoreCookie, sortedScores } from './scoreCookie.svelte';
+	import { sortedScores } from './persisted/scores.svelte';
 	import { secondsToTime } from './util';
-
-	loadScoreCookie();
 </script>
 
 <div class="highscore">
@@ -12,7 +10,7 @@
 	</b>
 
 	{#each sortedScores() as scoreEntry}
-		<p class="score">{scoreEntry[1]}: {secondsToTime(scoreEntry[0]) }</p>
+		<p class="score">{scoreEntry[0]}: {secondsToTime(scoreEntry[1]) }</p>
 	{/each}
 </div>
 

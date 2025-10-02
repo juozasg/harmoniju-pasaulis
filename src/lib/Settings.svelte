@@ -1,12 +1,6 @@
 <script lang="ts">
 	import { isLoadingAudio } from './audio.svelte';
-	import { loadSettingsCookie, saveSettingsCookie, settings } from './settingsCookie.svelte';
-
-
-	loadSettingsCookie();
-	$effect(() => {
-		saveSettingsCookie(settings);
-	});
+	import { settings } from './persisted/settings.svelte';
 </script>
 
 {#if isLoadingAudio()}

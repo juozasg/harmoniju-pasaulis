@@ -4,14 +4,11 @@ export const trailingSlash = 'always';
 
 import '$lib/audio.svelte';
 import { loadAudioData } from '$lib/audio.svelte';
-import { loadScoreCookie } from '$lib/scoreCookie.svelte';
-// import { SplendidGrandPiano, Reverb } from "smplr";
+
 
 export async function load() {
 	if (typeof AudioContext !== 'undefined') {
 		loadAudioData();
 	}
-
-	loadScoreCookie();
 }
 

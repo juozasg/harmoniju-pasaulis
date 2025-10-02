@@ -6,10 +6,13 @@
 
 	import Score from './Score.svelte';
 	import HighScore from './HighScore.svelte';
-	import { addScore } from './scoreCookie.svelte';
+	import { addScore, type Level } from './persisted/scores.svelte';
 	import Question from './Question.svelte';
 	import AnswersEnharmonic from './AnswersEnharmonic.svelte';
 	import Settings from './Settings.svelte';
+
+	type Props = { level: Level };
+	const { level }: Props = $props();
 
 	let gameInitState = $state(true);
 
@@ -109,6 +112,5 @@
 		margin-top: 15px;
 		margin-bottom: 30px;
 		font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-
 	}
 </style>

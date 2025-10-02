@@ -4,7 +4,7 @@
 	import RandomizeDice from './RandomizeDice.svelte';
 	import { playChord } from './audio.svelte';
 	import { blackSemitones, type Mood, type Semitone } from './names';
-	import { settings } from './settingsCookie.svelte';
+	import { settings } from './persisted/settings.svelte';
 
 	type Props = {
 		onQuestionReset: () => void;
