@@ -53,5 +53,5 @@ export function addScore(score: number) {
 	scores['level01'].push(score);
 }
 
-export const level02Unlocked = () =>  bestScore('level01') !== undefined && bestScore('level01')! < 300;
-export const level03Unlocked = () =>  bestScore('level02') !== undefined && bestScore('level02')! < 300;
+export const level02Unlocked = () =>  bestScore('level01') !== undefined && bestScore('level01')! < 180;
+export const level03Unlocked = () =>  bestScore('level02') !== undefined && bestScore('level02')! < 180;

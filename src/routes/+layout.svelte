@@ -34,6 +34,7 @@
 		--level01: #4caf50;
 		--level02: #2196f3;
 		--level03: #58078d;
+
 	}
 
 	#turn {
