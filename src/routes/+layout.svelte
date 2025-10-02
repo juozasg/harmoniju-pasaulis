@@ -32,7 +32,7 @@
 
 	:global(:root) {
 		--level01: #4caf50;
-		--level02: #2196f3;
+		--level02: #0e5e9f;
 		--level03: #58078d;
 
 	}
