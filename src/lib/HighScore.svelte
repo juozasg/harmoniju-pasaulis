@@ -1,16 +1,27 @@
 <script lang="ts">
-	import { sortedScores } from './persisted/scores.svelte';
+	import { sortedScores, type Level } from './persisted/scores.svelte';
 	import { secondsToTime } from './util';
+
+	const levelAbbrevs: Record<Level, string> = {
+		level01: 'L1',
+		level02: 'L2',
+		level03: 'L3'
+	};
 </script>
+
+{#snippet levelBadge(level: Level)}
+	<span class="level-badge {level}">{levelAbbrevs[level]}</span>
+{/snippet}
+
 
 <div class="highscore">
 	<b class="caption">
-		<p class='high'>BEST</p>
-		<p>TIMES</p>
+		<p class='high'>TOP</p>
+		<p>LAIKAS</p>
 	</b>
 
 	{#each sortedScores() as scoreEntry}
-		<p class="score">{scoreEntry[0]}: {secondsToTime(scoreEntry[1]) }</p>
+		<p class="score">{secondsToTime(scoreEntry[1])}{@render levelBadge(scoreEntry[0])}</p>
 	{/each}
 </div>
 
@@ -23,12 +34,15 @@
 		background-color: #fff;
 		padding: 10px;
 		padding-top: 0px;
+		padding-bottom: 0;
+
 		/* border-radius: 5px; */
 		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 		/* height: 200px; */
 		display: flex;
 		gap: 12px;
 		overflow-x: auto;
+		overflow-y: hidden;
 	}
 
 	.highscore p {
@@ -42,6 +56,7 @@
 			position: relative;
 			bottom: -3px;
 			font-size: 22px;
+			padding-left: 2px;
 		}
 	}
 
@@ -60,8 +75,42 @@
 			position: relative;
 			top: 5px;
 		}
+	}
 
+	.level-badge {
+		display: inline;
+		/* position: absolute; */
+		/* bottom: 15px; */
+		/* left: -4px; */
+		/* width: 16px; */
+		/* height: 16px; */
+		/* line-height: 16px; */
 
+		/* color: rgb(194, 17, 17); */
+		font-weight: 700;
+		font-size: 16px;
+		padding: 0;
+		margin: 0;
+		padding-left: 2px;
+		/* margin-right: 6px; */
+	}
+
+	.level-badge.level01 {
+		color: var(--level01);
+		/* border: 2px solid #388e3c; */
+		/* border-radius: 4px; */
+	}
+
+	.level-badge.level02 {
+		color: var(--level02);
+		/* border: 2px solid #1976d2; */
+		/* border-radius: 4px; */
+	}
+
+	.level-badge.level03 {
+		color: var(--level03);
+		/* border: 2px solid #4a148c; */
+		/* border-radius: 4px; */
 	}
 
 </style>

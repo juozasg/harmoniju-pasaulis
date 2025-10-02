@@ -1,11 +1,11 @@
 <script lang="ts">
-	import HelpHint from './HelpHint.svelte';
+	import { goto } from '$app/navigation';
 
+	import HelpHint from './HelpHint.svelte';
 	import ScoreFlash from './ScoreFlash.svelte';
 	import Answers from './Answers.svelte';
 
 	import Score from './Score.svelte';
-	import HighScore from './HighScore.svelte';
 	import { addScore, type Level } from './persisted/scores.svelte';
 	import Question from './Question.svelte';
 	import AnswersEnharmonic from './AnswersEnharmonic.svelte';
@@ -91,8 +91,9 @@
 
 	<ScoreFlash bind:this={scoreFlash} />
 
+	<div class="back"><button class="btn btn-primary" onclick={() => goto('/')}>Atgal</button></div>
+
 	<Settings />
-	<HighScore />
 </div>
 
 <style>
@@ -112,5 +113,19 @@
 		margin-top: 15px;
 		margin-bottom: 30px;
 		font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	}
+
+	.back {
+		position: fixed;
+		bottom: 100px;
+		left: 50%;
+		transform: translateX(-50%);
+
+		button {
+			padding: 10px 20px;
+			font-size: 18px;
+			height: auto;
+			width: auto;
+		}
 	}
 </style>

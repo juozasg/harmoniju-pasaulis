@@ -19,7 +19,14 @@ const persistedScores = persistedState<Record<Level, number[]>>('scores',
 	}
 );
 
-export const scores = persistedScores.current;
+// export const scores = persistedScores.current;
+
+export const scores = {
+	'level01': [200, 20, 89, 59] as number[],
+	'level02': [500, 2, 222] as number[],
+	'level03': [1, 11, 111] as number[],
+}
+
 // persistedScores.reset();
 
 // export const sortedScores = () => scores.sort((a, b) => a - b)

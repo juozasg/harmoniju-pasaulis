@@ -14,7 +14,7 @@ const persistedSettings = persistedState<Settings>('settings',
 		storage: 'local',
 		syncTabs: true,
 		beforeWrite: (value) => {
-			console.log('Saving preferences:', value);
+			// console.log('Saving preferences:', value);
 			return value;
 		},
 	}
