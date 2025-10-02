@@ -14,63 +14,83 @@
 </script>
 
 <div class="container main-menu">
-	<h1>Chords Hero</h1>
-	<h2>Learn to name piano chords</h2>
+	<h1>HARMONIJŲ PASAULIS</h1>
+	<h2>Išmok pianino harmonijų pavadinimus</h2>
 
-	<div class="level">
-		<button class="btn btn-primary">Level 1: White Keys</button>
-		{#if lesson01Best}
-			<p>Best Time: {secondsToTime(lesson01Best)}</p>
-		{/if}
-	</div>
-
-	<div class="level">
-		<button class="btn btn-primary" disabled={!lesson02Unlocked}>Level 2: Black Keys</button>
-		{#if lesson02Unlocked}
-			{#if lesson02Best}
-				<p>Best Time: {secondsToTime(lesson02Best)}</p>
+	<div class="levels">
+		<div class="level">
+			<button class="btn btn-primary">Lygis 1: Balti Klavišai</button>
+			{#if lesson01Best}
+				<p>Geriausias laikas: {secondsToTime(lesson01Best)}</p>
 			{/if}
-		{:else}
-			<p>Level 1 under 3 minutes to unlock</p>
-		{/if}
-	</div>
-
-	<div class="level">
-		<button class="btn btn-primary" disabled={!lesson03Unlocked}>Level 3: All Keys</button>
-		{#if lesson03Unlocked}
-			{#if lesson03Best}
-				<p>Best Time: {secondsToTime(lesson03Best)}</p>
+		</div>
+		<div class="level">
+			<button class="btn btn-primary" disabled={!lesson02Unlocked}>Lygis 2: Juodi Klavišai</button>
+			{#if lesson02Unlocked}
+				{#if lesson02Best}
+					<p>Geriausias laikas: {secondsToTime(lesson02Best)}</p>
+				{/if}
+			{:else}
+				<p>Norint atrakinti, lygis 1 turi būti baigtas per 3 minutes</p>
 			{/if}
-		{:else}
-			<p>Level 2 under 3 minutes to unlock</p>
-		{/if}
+		</div>
+		<div class="level">
+			<button class="btn btn-primary" disabled={!lesson03Unlocked}>Lygis 3: Visi Klavišai</button>
+			{#if lesson03Unlocked}
+				{#if lesson03Best}
+					<p>Best Time: {secondsToTime(lesson03Best)}</p>
+				{/if}
+			{:else}
+				<p>Level 2 under 3 minutes to unlock</p>
+			{/if}
+		</div>
 	</div>
 </div>
 
 <style>
+
+	h1 {
+		margin-bottom: 10px;
+		font-size: 42px;
+		font-weight: 700;
+		@media (max-width: 480px) {
+			font-size: 8.5vw;
+
+		}
+		/* max-font-size: 80px; */
+		word-wrap: none;
+	}
+
+	h2 {
+		font-size: 24px;
+		margin-bottom: 40px;
+		font-weight: 300;
+
+	}
 	.btn {
-		/* margin: 1rem; */
-		/* padding: 1rem 2rem; */
 		padding: 10px 10px;
 		height: 50px;
-		width: 300px;
+		width: 340px;
 		font-size: 30px;
-		/* border: none; */
-		/* border-radius: 0.5rem; */
-		/* background-color: #0070f3; */
-		/* color: white; */
-		/* cursor: pointer; */
-		/* transition: background-color 0.3s ease; */
+	}
+
+	.levels {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.level {
-		margin-bottom: 2em;
+		margin-bottom: 3em;
+		width: 360px;
+
 		p {
-			margin-top: 0;
+			margin-top: 4px;
 			margin-bottom: 0;
 			font-size: 20px;
-			text-align: left;
-			margin-left: 24px;
+			text-align: center;
+			margin-left:  10px;
 		}
 	}
 
