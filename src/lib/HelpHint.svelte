@@ -5,11 +5,11 @@
 <div class="container">
 	<div class="columns">
 		<div class="column col-sm-12 col-12">
-			<p>Click the Dice or press <kbd>R</kbd> to start the game</p>
+			<p>Paspaukite 🎲 arba <kbd>R</kbd> pradėti žaidimą</p>
 		</div>
 		{#if settings.playChord}
 			<div class="column col-sm-12 col-12">
-				<p>Click 😊 / 😩 / 🎶 to replay the Chord</p>
+				<p>Paspaukite 😊 / 😩 / 🎶 pakartoti akordą</p>
 			</div>
 		{/if}
 	</div>

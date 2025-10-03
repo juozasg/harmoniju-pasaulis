@@ -8,14 +8,14 @@
 {:else}
 	<div class="container">
 		<div class="columns">
-			<div class="column options-column">OPTIONS</div>
+			<div class="column options-column">NUSTATYMAI</div>
 			<div class="column play-chord-column">
 				<input id="play-chord" type="checkbox" bind:checked={settings.playChord} />
-				<label for="play-chord">Play Chord</label>
+				<label for="play-chord">Groti akordą</label>
 			</div>
 			<div class="column hide-emoji-column">
 				<input id="hide-emoji" type="checkbox" bind:checked={settings.hideEmoji} />
-				<label for="hide-emoji">Hide Mood Emoji</label>
+				<label for="hide-emoji">Nerodyti emocijų</label>
 			</div>
 		</div>
 	</div>
@@ -39,20 +39,30 @@
 	}
 
 	.options-column {
-		min-width: 90px;
-		max-width: 90px;
+		min-width: 120px;
+		max-width: 120px;
 		font-weight: 500;
 		padding-left: 8px;
+		/* border: 1px solid #ddd; */
+
+		@media (max-width: 390px) {
+			font-size: 13px;
+			min-width: 90px;
+			max-width: 90px;
+			padding-left: 4px;
+			position: relative;
+			bottom: -3px;
+		}
 	}
 
 	.play-chord-column {
-		min-width: 106px;
-		max-width: 106px;
+		min-width: 120px;
+		max-width: 120px;
 	}
 
 	.hide-emoji-column {
-		min-width: 160px;
-		max-width: 160px;
+		min-width: 150px;
+		max-width: 150px;
 	}
 
 	input[type='checkbox'] {

@@ -1,4 +1,6 @@
 <script lang="ts">
+  import LevelHeader from './LevelHeader.svelte';
+
 	import { goto } from '$app/navigation';
 
 	import HelpHint from './HelpHint.svelte';
@@ -6,7 +8,7 @@
 	import Answers from './Answers.svelte';
 
 	import Score from './Score.svelte';
-	import { addScore, type Level } from './persisted/scores.svelte';
+	import { addScore, levelDescriptions, type Level } from './persisted/scores.svelte';
 	import Question from './Question.svelte';
 	import AnswersEnharmonic from './AnswersEnharmonic.svelte';
 	import Settings from './Settings.svelte';
@@ -25,6 +27,15 @@
 
 	const semitone = $derived(question && question.getSemitone());
 	const mood = $derived(question && question.getMood());
+
+	const hasWon = $derived(score && score.hasWon());
+
+
+	$effect(() => {
+		// console.log('FX score', score, score?.hasWon());
+
+	});
+
 
 	function onQuestionReset() {
 		if (gameInitState) {
@@ -71,6 +82,8 @@
 	<div class="score">
 		<Score bind:this={score} />
 	</div>
+
+	<LevelHeader {level} />
 	<Question {onQuestionReset} {gameInitState} bind:this={question} />
 
 	{#if !gameInitState && semitone && mood}
@@ -85,8 +98,8 @@
 		<HelpHint />
 	{/if}
 
-	{#if score && score.hasWon()}
-		<div class="win">Win!</div>
+	{#if hasWon}
+		<div class="win">Laimėjai!</div>
 	{/if}
 
 	<ScoreFlash bind:this={scoreFlash} />

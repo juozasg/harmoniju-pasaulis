@@ -6,7 +6,7 @@
 
 	export const getTime = () => time;
 
-	const winningScore = 20;
+	const winningScore = 1;
 
 	let initialState = $state(true);
 	export const hasWon = () => score >= winningScore;
@@ -39,16 +39,16 @@
 	};
 </script>
 
-<div class="score-container">
+<div class="score-container {hasWon() ? 'won' : ''}">
 	{#if !initialState}
 		<div class="score">
 			{#if !hasWon()}
-				<p>SCORE <b>{score}/{winningScore}</b></p>
+				<p>TAŠKAI <b>{score}/{winningScore}</b></p>
 			{/if}
 		</div>
 
 		<div class="time">
-			<p>TIME <b>{secondsToTime(time)}</b></p>
+			<p>LAIKAS <b>{secondsToTime(time)}</b></p>
 		</div>
 	{/if}
 </div>
@@ -74,6 +74,11 @@
 		position: absolute;
 		top: 0;
 		right: 0;
+	}
+
+	.won .time {
+		color: green;
+		font-weight: bold;
 	}
 
 

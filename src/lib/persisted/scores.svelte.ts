@@ -2,6 +2,18 @@ import { persistedState } from 'svelte-persisted-state';
 
 export type Level = 'level01' | 'level02' | 'level03';
 
+export const levelNames: Record<Level, string> = {
+	'level01': 'Lygis 1',
+	'level02': 'Lygis 2',
+	'level03': 'Lygis 3',
+}
+
+export const levelDescriptions: Record<Level, string> = {
+	'level01': 'Lygis 1: Balti klavišai',
+	'level02': 'Lygis 2: Juodi klavišai',
+	'level03': 'Lygis 3: Visi klavišai',
+}
+
 
 const persistedScores = persistedState<Record<Level, number[]>>('scores',
 	{
